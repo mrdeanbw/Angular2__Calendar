@@ -1,6 +1,6 @@
-# Angular2 Starter [![Join the chat at https://gitter.im/EladRK/angular-starter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/EladRK/angular-starter?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+# Calendar analytics 
 
-A starter template for Angular2 applications.
+A starter template for Angular2 scheduling.
 
 > This starter uses [gulp.js](http://gulpjs.com/) for a build workflow.
 
