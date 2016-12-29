@@ -3,30 +3,12 @@ export class AppointmentsService {
 	public totalEvent: number;
 	public totalTime: number;
 
-	loadCalendarlists() {
-		return new Promise((resolve, reject) => {
-			var request = gapi.client.calendar.calendarList.list();
-			request.execute((resp) => {
-				var calendars = [];
-				var cals = resp.items;
-				var i;
-				if (cals.length > 0) {
-					for (i = 0; i < cals.length; i++) {
-						calendars.push(cals[i].summary);
-					}
-				}
-				else {
-					calendars.push('No calendars');
-				}
-				resolve(calendars);
-			});
-		});
-	}
+	
 
-	loadAppointments() {
+	loadAppointments(calendarid) {
 		return new Promise((resolve, reject) => {
 			var request = gapi.client.calendar.events.list({
-				'calendarId': 'primary',
+				'calendarId': calendarid,
 				'timeMin': (new Date()).toISOString(),
 				'showDeleted': false,
 				'singleEvents': true,
@@ -39,10 +21,9 @@ export class AppointmentsService {
 				var appointments = [];
 				var events = resp.items;
 				var totaltime = 0;
-				var i;
-				this.totalEvent = events.length;
-				console.log(this.totalEvent);
+				var i;				
 				if (events.length > 0) {
+					this.totalEvent = events.length;
 					for (i = 0; i < events.length; i++) {
 						var event = events[i];
 						var when_s = event.start.dateTime;
