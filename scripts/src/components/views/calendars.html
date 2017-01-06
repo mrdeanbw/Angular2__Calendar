@@ -36,12 +36,13 @@
                     .hide();
 
                     $("#daterange-input").val(picker.startDate.format('YYYY-MM-DD h:mm A') + ' ~ ' + picker.endDate.format('YYYY-MM-DD h:mm A'))
-                    .show()                    
+                    .show()
                     .focus()
                     .hide();
                     $("#daterange").show();                    
                 });
                 
+
                 $("#daterange-input").click(function(){
                     $("#daterange-input").hide();
                     $("#daterange").show()
@@ -51,8 +52,8 @@
                 $("#daterange").on('cancel.daterangepicker', function(ev, picker) {
                      $(this).val('');
                 });                
-            });          
-                         
+
+            });            
         </script>
     </div>
     <div class="panel-body" *ng-if="authenticationService.isAuthenticated">
