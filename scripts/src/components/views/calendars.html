@@ -37,12 +37,10 @@
 
                     $("#daterange-input").val(picker.startDate.format('YYYY-MM-DD h:mm A') + ' ~ ' + picker.endDate.format('YYYY-MM-DD h:mm A'))
                     .show()                    
-                    .focus();
-                });
-                $("#daterange-input").keyup(function(){
-                    $("#daterange-input").hide();
-                    $("#daterange").show();                    
-                });
+                    .focus()
+		    .hide();
+		    $("#daterange").show();
+                });                
                 $("#daterange-input").click(function(){
                     $("#daterange-input").hide();
                     $("#daterange").show()
@@ -52,14 +50,7 @@
                 $("#daterange").on('cancel.daterangepicker', function(ev, picker) {
                      $(this).val('');
                 });                
-            });
-            // $("#daterange").on('apply.daterangepicker', function(ev, picker){                
-            //     $("#daterange").on('change', function(){
-            //        
-            //     });
-            // });
-           
-                         
+            });                         
         </script>
     </div>
     <div class="panel-body" *ng-if="authenticationService.isAuthenticated">
